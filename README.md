@@ -13,8 +13,8 @@ to select and manage personalized Slay the Spire2 main menu scene from a unified
 It provides a lightweight runtime editor that allows users to create personalized wallpapers with
 out the need for [Godot Engine](https://godotengine.org).  
 The wallpaper will be saved in TSCN format
-and support secondary editing in [Godot Engine](https://godotengine.org).
-![MainMenu](https://raw.github.com/MoeNegi-Zero/STS2-Theme/tree/main/Preview/MainMenu.gif)
+and support secondary editing in [Godot Engine](https://godotengine.org).  
+![MainMenu](https://github.com/MoeNegi-Zero/STS2-Theme/blob/main/Preview/MainMenu.gif?raw=true)
 
 ## Independent & Community-driven
 
@@ -50,7 +50,7 @@ PreviewThemePath=Selphina/Scenes/preview.tscn
 In this case, ThemeCard will attempt to load  
 **res://Themes/Selphina/Scenes/preview.tscn**  
 
-![Preview Card](https://raw.github.com/MoeNegi-Zero/STS2-Theme/tree/main/Preview/ThemeManager.gif).
+![Preview Card](https://github.com/MoeNegi-Zero/STS2-Theme/blob/main/Preview/ThemeManager.gif?raw=true)
 
 ### Runtime Editor
 
@@ -61,8 +61,8 @@ Currently accepted file formats
 Image: png  
 Video: ogv
 
-![RuntimeEditor](https://raw.github.com/MoeNegi-Zero/STS2-Theme/tree/main/Preview/RuntimeEditor.png)
+![RuntimeEditor](https://github.com/MoeNegi-Zero/STS2-Theme/blob/main/Preview/RuntimeEditor.png?raw=true)
 
 ## Buy me a coffee
 
-![CoffeePlz](https://raw.github.com/MoeNegi-Zero/STS2-Theme/tree/main/Preview/CoffeePlz.png)
+![CoffeePlz](https://github.com/MoeNegi-Zero/STS2-Theme/blob/main/Preview/CoffeePlz.png?raw=true)
