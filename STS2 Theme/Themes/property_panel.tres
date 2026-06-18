@@ -1,0 +1,35 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dpdrqtju5ce30"]
+
+[ext_resource type="FontVariation" uid="uid://b8ce4a71ref23" path="res://themes/spectral_bold_shared.tres" id="1_vbnby"]
+[ext_resource type="FontVariation" uid="uid://ux4d708e7mk6" path="res://themes/kreon_bold_glyph_space_one.tres" id="1_ytbwm"]
+[ext_resource type="Texture2D" uid="uid://hdru0pafoji5" path="res://STS2 Theme/Images/Editor/UI/GuiUnchecked.svg" id="2_m8c1m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtion"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.25882354, 0.2509804, 0.2509804, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7jei"]
+content_margin_left = 4.0
+bg_color = Color(0.27022192, 0.27022192, 0.2702219, 0.19607843)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[resource]
+CheckBox/constants/outline_size = 7
+CheckBox/fonts/font = ExtResource("1_ytbwm")
+CheckBox/icons/unchecked = ExtResource("2_m8c1m")
+FoldableContainer/colors/font_color = Color(0.9137255, 0.9137255, 0.9137255, 1)
+FoldableContainer/colors/font_outline_color = Color(0, 0, 0, 1)
+FoldableContainer/styles/title_panel = SubResource("StyleBoxFlat_jtion")
+LineEdit/fonts/font = ExtResource("1_vbnby")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_m7jei")

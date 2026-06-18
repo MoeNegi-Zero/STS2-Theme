@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3c8b2koo1pwv"]
+
+[ext_resource type="Script" uid="uid://bsmni3s5g150f" path="res://STS2 Theme/Codes/NUnSelectableNode.cs" id="1_pkuaa"]
+[ext_resource type="FontVariation" uid="uid://ux4d708e7mk6" path="res://themes/kreon_bold_glyph_space_one.tres" id="2_1spvf"]
+
+[node name="UnSelectableNode" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+script = ExtResource("1_pkuaa")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_fonts/font = ExtResource("2_1spvf")
+theme_override_font_sizes/font_size = 18
+text = "        Node"
+vertical_alignment = 1

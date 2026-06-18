@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://d07f1jorntwsm"]
+
+[ext_resource type="Texture2D" uid="uid://o6cnaea5oqmq" path="res://STS2 Theme/Images/UI/theme_manager_ui.png" id="1_0k5wb"]
+[ext_resource type="Script" uid="uid://dccqk5i43un6q" path="res://STS2 Theme/Codes/NThemeManagerButton.cs" id="1_akk7k"]
+[ext_resource type="Shader" uid="uid://dm3wg8t8je0f1" path="res://shaders/hsv.gdshader" id="1_iuwx8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_akk7k"]
+shader = ExtResource("1_iuwx8")
+shader_parameter/h = 1.0
+shader_parameter/s = 2.26000010735
+shader_parameter/v = 1.0
+
+[node name="ThemeManagerButton" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -88.0
+offset_top = 86.0
+offset_right = -24.0
+offset_bottom = 150.0
+grow_horizontal = 0
+pivot_offset = Vector2(32, 32)
+mouse_filter = 2
+script = ExtResource("1_akk7k")
+
+[node name="Icon" type="TextureButton" parent="."]
+material = SubResource("ShaderMaterial_akk7k")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+texture_normal = ExtResource("1_0k5wb")

@@ -1,0 +1,228 @@
+[gd_scene load_steps=12 format=3 uid="uid://ufhn46lrrwjx"]
+
+[ext_resource type="Script" uid="uid://d373pp6287nvp" path="res://STS2 Theme/Codes/NThemeManager.cs" id="1_87quo"]
+[ext_resource type="PackedScene" uid="uid://bvecn8kif57iq" path="res://STS2 Theme/Scenes/theme_card.tscn" id="2_58sjd"]
+[ext_resource type="Texture2D" uid="uid://q1y4ux" path="res://images/atlases/compressed.sprites/back_button_x.tres" id="3_4507a"]
+[ext_resource type="Texture2D" uid="uid://o6cnaea5oqmq" path="res://STS2 Theme/Images/UI/theme_manager_ui.png" id="4_tmbxp"]
+[ext_resource type="Shader" uid="uid://dm3wg8t8je0f1" path="res://shaders/hsv.gdshader" id="4_yoicf"]
+[ext_resource type="FontVariation" uid="uid://ux4d708e7mk6" path="res://themes/kreon_bold_glyph_space_one.tres" id="5_tmbxp"]
+[ext_resource type="StyleBox" uid="uid://bpuow76agvkhw" path="res://STS2 Theme/Themes/Button.tres" id="8_jdilc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpdgy"]
+bg_color = Color(0.078431375, 0.078431375, 0.12156863, 0.9490196)
+border_color = Color(0, 0, 0, 1)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uii8"]
+bg_color = Color(0.31801978, 0.3180198, 0.31801963, 1)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yl4d0"]
+shader = ExtResource("4_yoicf")
+shader_parameter/h = 1.0
+shader_parameter/s = 2.26000010735
+shader_parameter/v = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yoicf"]
+bg_color = Color(0.92099476, 0.9209946, 0.9209946, 1)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.6)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="ThemeManager" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 160.0
+offset_top = 100.0
+offset_right = -160.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(800, 440)
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_tpdgy")
+script = ExtResource("1_87quo")
+ThemeCardScene = ExtResource("2_58sjd")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 110.0
+offset_right = -20.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="ThemeGrid" type="GridContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 5
+columns = 6
+
+[node name="SearchBar" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = 0
+offset_left = 36.0
+offset_top = 35.0
+offset_right = 292.0
+offset_bottom = 83.0
+
+[node name="TextArea" type="LineEdit" parent="SearchBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_6uii8")
+placeholder_text = " Search"
+
+[node name="Close" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -78.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = 78.0
+grow_horizontal = 0
+pivot_offset = Vector2(24, 24)
+texture_normal = ExtResource("3_4507a")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TitleContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.0
+offset_top = 18.0
+offset_right = 222.0
+offset_bottom = 94.0
+grow_horizontal = 2
+
+[node name="Icon" type="TextureRect" parent="TitleContainer"]
+material = SubResource("ShaderMaterial_yl4d0")
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 76.0
+focus_neighbor_right = NodePath("../Title")
+texture = ExtResource("4_tmbxp")
+stretch_mode = 5
+
+[node name="Title" type="LinkButton" parent="TitleContainer"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 87.0
+offset_top = 1.0
+offset_right = 417.0
+offset_bottom = 78.0
+focus_neighbor_left = NodePath("../Icon")
+theme_override_fonts/font = ExtResource("5_tmbxp")
+theme_override_font_sizes/font_size = 60
+text = "STS2 Theme"
+underline = 1
+uri = "https://github.com/MoeNegi-Zero/STS2-Theme"
+
+[node name="Edit" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_top = -80.0
+offset_right = -212.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_tmbxp")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("8_jdilc")
+text = "Edit"
+
+[node name="Upload" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -80.0
+offset_right = -62.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.18000466, 0.18000504, 0.18000469, 1)
+theme_override_fonts/font = ExtResource("5_tmbxp")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_yoicf")
+disabled = true
+text = "Upload"
+
+[node name="Create" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -80.0
+offset_right = 250.0
+offset_bottom = -32.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_tmbxp")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("8_jdilc")
+text = "Create Theme"
+
+[node name="Import" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 270.0
+offset_top = -80.0
+offset_right = 470.0
+offset_bottom = -32.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_tmbxp")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("8_jdilc")
+text = "Import from Zip"
+
+[node name="SubViewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
+transparent_bg = true
+size = Vector2i(1920, 1080)

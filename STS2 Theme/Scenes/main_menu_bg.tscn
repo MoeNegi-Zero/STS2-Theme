@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://crdobsysg1qdl"]
+
+[ext_resource type="Script" uid="uid://cdoiq50dtsoi1" path="res://src/Core/Nodes/Screens/MainMenu/NMainMenuBg.cs" id="1_lkhxs"]
+[ext_resource type="VideoStream" uid="uid://4mud7iol1wyh" path="res://STS2 Theme/Images/preview.ogv" id="1_xsftg"]
+[ext_resource type="SpineAtlasResource" uid="uid://cpbnbw60weaps" path="res://animations/backgrounds/mainmenu/logo/main_menu_logo.atlas" id="2_ulpyk"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://gv7g6i8xrwqs" path="res://animations/backgrounds/mainmenu/logo/main_menu_logo.skel" id="3_0iksr"]
+[ext_resource type="Script" uid="uid://djuwhjld4a6u1" path="res://scenes/backgrounds/little_light_script.gd" id="4_0iksr"]
+[ext_resource type="Texture2D" uid="uid://cncctpac8h2ti" path="res://images/vfx/light.png" id="4_33fca"]
+[ext_resource type="Material" uid="uid://c4ycqv0gdxvmr" path="res://themes/canvas_item_material_additive_shared.tres" id="4_xy52x"]
+[ext_resource type="Script" uid="uid://dtk0xuctd6a67" path="res://src/Core/Nodes/Animation/NSpineAutoPlayer.cs" id="6_xy52x"]
+
+[sub_resource type="Gradient" id="Gradient_xy52x"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.25647667, 0.8601036, 1)
+colors = PackedColorArray(0, 0, 0, 0.9019608, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.9019608)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lkhxs"]
+gradient = SubResource("Gradient_xy52x")
+fill_from = Vector2(0, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_xsftg"]
+atlas_res = ExtResource("2_ulpyk")
+skeleton_file_res = ExtResource("3_0iksr")
+
+[sub_resource type="Curve" id="Curve_lkhxs"]
+_data = [Vector2(0, 0.4190969), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5108184), 0.0, 0.0, 0, 0, Vector2(1, 0.4190969), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_8bikk"]
+offsets = PackedFloat32Array(0, 0.412, 0.994)
+colors = PackedColorArray(0.34901962, 0.34901962, 0.34901962, 1, 1, 1, 1, 1, 0.34901962, 0.34901962, 0.34901962, 1)
+
+[node name="MainMenuBg" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lkhxs")
+metadata/_edit_group_ = true
+
+[node name="BgContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="BgContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_xsftg")
+autoplay = true
+expand = true
+loop = true
+
+[node name="TextureRect" type="TextureRect" parent="BgContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 540)
+texture = SubResource("GradientTexture2D_lkhxs")
+
+[node name="Control" type="Control" parent="BgContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="SpineSprite" parent="BgContainer/Control"]
+skeleton_data_res = SubResource("SpineSkeletonDataResource_xsftg")
+preview_skin = "Default"
+preview_animation = "animation"
+preview_frame = false
+preview_time = 0.0
+unique_name_in_owner = true
+position = Vector2(-115, 37)
+scale = Vector2(0.35, 0.35)
+
+[node name="light_large" type="CPUParticles2D" parent="BgContainer/Control/Logo"]
+show_behind_parent = true
+material = ExtResource("4_xy52x")
+position = Vector2(1328, 692)
+scale = Vector2(2, 2)
+amount = 1
+texture = ExtResource("4_33fca")
+lifetime = 3.0
+local_coords = true
+gravity = Vector2(0, 0)
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_lkhxs")
+color = Color(0.2509804, 0.8039216, 0.84313726, 0.29411766)
+color_ramp = SubResource("Gradient_8bikk")
+script = ExtResource("4_0iksr")
+
+[node name="NSpineAutoPlayer" type="Node" parent="BgContainer/Control/Logo"]
+script = ExtResource("6_xy52x")
+metadata/_custom_type_script = "uid://dtk0xuctd6a67"

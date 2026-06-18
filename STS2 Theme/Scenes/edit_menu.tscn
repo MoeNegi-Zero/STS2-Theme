@@ -1,0 +1,381 @@
+[gd_scene load_steps=17 format=3 uid="uid://c50eey2r2pl7"]
+
+[ext_resource type="Script" uid="uid://bg3wyo8qgy0hn" path="res://STS2 Theme/Codes/NEditMenu.cs" id="1_7tvc0"]
+[ext_resource type="Script" uid="uid://ccda0y1abip6x" path="res://STS2 Theme/Codes/NDraggableWindow.cs" id="3_hs1ti"]
+[ext_resource type="FontVariation" uid="uid://ux4d708e7mk6" path="res://themes/kreon_bold_glyph_space_one.tres" id="4_73hc6"]
+[ext_resource type="PackedScene" uid="uid://dromveb5wqkcv" path="res://STS2 Theme/Scenes/property_panel.tscn" id="5_achbl"]
+[ext_resource type="Script" uid="uid://6ptg5mnyxdtb" path="res://STS2 Theme/Codes/NPanelTabContainer.cs" id="5_r0q4y"]
+[ext_resource type="Script" uid="uid://b8jtov7rarxo1" path="res://STS2 Theme/Codes/NNodesFolder.cs" id="6_7tvc0"]
+[ext_resource type="Theme" uid="uid://dpdrqtju5ce30" path="res://STS2 Theme/Themes/property_panel.tres" id="6_73hc6"]
+[ext_resource type="Texture2D" uid="uid://d4kuytalsdfpr" path="res://STS2 Theme/Images/ThemeCards/missing.png" id="7_73hc6"]
+[ext_resource type="StyleBox" uid="uid://bpuow76agvkhw" path="res://STS2 Theme/Themes/Button.tres" id="9_r0q4y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hs1ti"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.14117648, 0.12941177, 0.12941177, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtion"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73hc6"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6431373)
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_achbl"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 0)
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0q4y"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.42745098, 0.078431375, 0.18039216, 1)
+border_color = Color(0.42745098, 0.078431375, 0.18039216, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adg6m"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6509804, 0.12941177, 0.27058825, 1)
+border_color = Color(1, 1, 1, 0.75)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7arm"]
+bg_color = Color(0.6759585, 0.24378753, 0.28957042, 1)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.6)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="EditMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_7tvc0")
+
+[node name="FrameContainer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DraggableWindow" type="FoldableContainer" parent="CanvasLayer"]
+z_index = 99
+offset_left = 774.0
+offset_top = 255.0
+offset_right = 1258.0
+offset_bottom = 389.0
+theme_override_fonts/font = ExtResource("4_73hc6")
+theme_override_styles/title_panel = SubResource("StyleBoxFlat_hs1ti")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jtion")
+theme_override_styles/panel = SubResource("StyleBoxFlat_73hc6")
+title = "STS2 Runtime Editor"
+script = ExtResource("3_hs1ti")
+
+[node name="PanelTabContainer" type="TabContainer" parent="CanvasLayer/DraggableWindow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/side_margin = 10
+theme_override_constants/tab_separation = 4
+theme_override_fonts/font = ExtResource("4_73hc6")
+theme_override_styles/panel = SubResource("StyleBoxFlat_achbl")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_r0q4y")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_adg6m")
+current_tab = 2
+script = ExtResource("5_r0q4y")
+
+[node name="PropertyPanel" type="VBoxContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+metadata/_tab_index = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/PropertyPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DraggableWindow/PanelTabContainer/PropertyPanel/MarginContainer2"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+mouse_filter = 1
+color = Color(0.5686275, 0.10980392, 0.23529412, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/PropertyPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 4
+
+[node name="PropertyPanel" parent="CanvasLayer/DraggableWindow/PanelTabContainer/PropertyPanel/MarginContainer" instance=ExtResource("5_achbl")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Nodes" type="VBoxContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+metadata/_tab_index = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Nodes"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Nodes/MarginContainer2"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+mouse_filter = 1
+color = Color(0.5686275, 0.10980392, 0.23529412, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Nodes"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 6
+
+[node name="MainMenuNodesFolder" type="FoldableContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Nodes/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("6_73hc6")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_73hc6")
+title = "MainMenu"
+script = ExtResource("6_7tvc0")
+
+[node name="MainMenuNodes" type="VBoxContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Nodes/MarginContainer/MainMenuNodesFolder"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MainMenuBgNodesFolder" type="FoldableContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Nodes/MarginContainer/MainMenuNodesFolder/MainMenuNodes"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("6_73hc6")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_73hc6")
+title = "MainMenuBg"
+script = ExtResource("6_7tvc0")
+
+[node name="MainMenuBgNodes" type="VBoxContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Nodes/MarginContainer/MainMenuNodesFolder/MainMenuNodes/MainMenuBgNodesFolder"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Files" type="VBoxContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("6_73hc6")
+theme_override_constants/separation = 0
+metadata/_tab_index = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files/MarginContainer3"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+mouse_filter = 1
+color = Color(0.5686275, 0.10980392, 0.23529412, 1)
+
+[node name="Container" type="MarginContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files/Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files/Container/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_73hc6")
+theme_override_font_sizes/font_size = 24
+text = "Preview"
+
+[node name="Preview" type="TextureButton" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files/Container/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("7_73hc6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_73hc6")
+theme_override_font_sizes/font_size = 24
+text = "Title"
+
+[node name="Title" type="LineEdit" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_73hc6")
+theme_override_font_sizes/font_size = 24
+text = "Author"
+
+[node name="Author" type="LineEdit" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files/MarginContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Save" type="Button" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 0
+offset_left = 70.0
+offset_top = 26.0
+offset_right = 198.0
+offset_bottom = 74.00001
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_73hc6")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("9_r0q4y")
+text = "Save"
+
+[node name="Exit" type="Button" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Files/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 1
+offset_left = 278.0
+offset_top = 26.0
+offset_right = 406.0
+offset_bottom = 74.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_73hc6")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_t7arm")
+text = "Exit"
+
+[node name="Advanced" type="VBoxContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+metadata/_tab_index = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Advanced"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Advanced/MarginContainer2"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+mouse_filter = 1
+color = Color(0.5686275, 0.10980392, 0.23529412, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Advanced"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Advanced/MarginContainer"]
+layout_mode = 2
+
+[node name="HideFrames" type="CheckBox" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Advanced/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("6_73hc6")
+text = "Hide all editor frames"
+
+[node name="ResetMainMenu" type="CheckBox" parent="CanvasLayer/DraggableWindow/PanelTabContainer/Advanced/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("6_73hc6")
+button_pressed = true
+text = "Reset MainMenu when Exited"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Open a File"
+position = Vector2i(160, 100)
+size = Vector2i(1600, 880)
+ok_button_text = "Select"
+file_mode = 0
+access = 2
+show_hidden_files = true
+use_native_dialog = true
+
+[connection signal="draw" from="CanvasLayer/DraggableWindow/PanelTabContainer/PropertyPanel" to="CanvasLayer/DraggableWindow" method="OnTabButtonDown"]
+[connection signal="draw" from="CanvasLayer/DraggableWindow/PanelTabContainer/Nodes" to="CanvasLayer/DraggableWindow" method="OnTabButtonDown"]
+[connection signal="draw" from="CanvasLayer/DraggableWindow/PanelTabContainer/Files" to="CanvasLayer/DraggableWindow" method="OnTabButtonDown"]
+[connection signal="draw" from="CanvasLayer/DraggableWindow/PanelTabContainer/Advanced" to="CanvasLayer/DraggableWindow" method="OnTabButtonDown"]

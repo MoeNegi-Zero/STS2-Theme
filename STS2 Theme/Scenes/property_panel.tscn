@@ -1,0 +1,189 @@
+[gd_scene load_steps=4 format=3 uid="uid://dromveb5wqkcv"]
+
+[ext_resource type="Theme" uid="uid://dpdrqtju5ce30" path="res://STS2 Theme/Themes/property_panel.tres" id="1_ro68j"]
+[ext_resource type="FontVariation" uid="uid://ux4d708e7mk6" path="res://themes/kreon_bold_glyph_space_one.tres" id="1_y6wiu"]
+[ext_resource type="Script" uid="uid://caj2um70jrfmw" path="res://STS2 Theme/Codes/NPropertyPanel.cs" id="2_m7jei"]
+
+[node name="PropertyPanel" type="FoldableContainer"]
+offset_right = 472.0
+offset_bottom = 368.0
+theme = ExtResource("1_ro68j")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_y6wiu")
+title = "Transform"
+script = ExtResource("2_m7jei")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="SizeContainer" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SizeContainer"]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_y6wiu")
+text = "       Size"
+vertical_alignment = 1
+
+[node name="SplitContainer" type="VBoxContainer" parent="VBoxContainer/SizeContainer"]
+layout_mode = 2
+
+[node name="SizeX" type="SpinBox" parent="VBoxContainer/SizeContainer/SplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+step = 0.001
+allow_greater = true
+allow_lesser = true
+prefix = "x   "
+suffix = "px"
+select_all_on_focus = true
+
+[node name="SizeY" type="SpinBox" parent="VBoxContainer/SizeContainer/SplitContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+step = 0.001
+allow_greater = true
+allow_lesser = true
+prefix = "y   "
+suffix = "px"
+select_all_on_focus = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_y6wiu")
+text = "       Position"
+vertical_alignment = 1
+
+[node name="SplitContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PositionX" type="SpinBox" parent="VBoxContainer/HBoxContainer/SplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+step = 0.001
+allow_greater = true
+allow_lesser = true
+prefix = "x   "
+suffix = "px"
+select_all_on_focus = true
+
+[node name="PositionY" type="SpinBox" parent="VBoxContainer/HBoxContainer/SplitContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+step = 0.001
+allow_greater = true
+allow_lesser = true
+prefix = "y   "
+suffix = "px"
+select_all_on_focus = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_y6wiu")
+text = "       Rotation"
+vertical_alignment = 1
+
+[node name="Rotation" type="SpinBox" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+allow_greater = true
+allow_lesser = true
+select_all_on_focus = true
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_y6wiu")
+text = "       Scale"
+vertical_alignment = 1
+
+[node name="SplitContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="ScaleX" type="SpinBox" parent="VBoxContainer/HBoxContainer4/SplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+step = 0.001
+allow_greater = true
+allow_lesser = true
+prefix = "x   "
+select_all_on_focus = true
+
+[node name="ScaleY" type="SpinBox" parent="VBoxContainer/HBoxContainer4/SplitContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+step = 0.001
+allow_greater = true
+allow_lesser = true
+prefix = "y   "
+select_all_on_focus = true
+
+[node name="PivotContainer" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PivotContainer"]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_y6wiu")
+text = "       Pivot Offset"
+vertical_alignment = 1
+
+[node name="SplitContainer" type="VBoxContainer" parent="VBoxContainer/PivotContainer"]
+layout_mode = 2
+
+[node name="PivotX" type="SpinBox" parent="VBoxContainer/PivotContainer/SplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+step = 0.001
+allow_greater = true
+allow_lesser = true
+prefix = "x   "
+suffix = "px"
+select_all_on_focus = true
+
+[node name="PivotY" type="SpinBox" parent="VBoxContainer/PivotContainer/SplitContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+step = 0.001
+allow_greater = true
+allow_lesser = true
+prefix = "y   "
+suffix = "px"
+select_all_on_focus = true

@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvecn8kif57iq"]
+
+[ext_resource type="Shader" uid="uid://dm3wg8t8je0f1" path="res://shaders/hsv.gdshader" id="1_b7326"]
+[ext_resource type="Script" uid="uid://b7acn6xycxht8" path="res://STS2 Theme/Codes/NThemeCard.cs" id="1_qb6s0"]
+[ext_resource type="FontVariation" uid="uid://ux4d708e7mk6" path="res://themes/kreon_bold_glyph_space_one.tres" id="2_b7326"]
+[ext_resource type="Texture2D" uid="uid://d4kuytalsdfpr" path="res://STS2 Theme/Images/ThemeCards/missing.png" id="3_qb6s0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qb6s0"]
+shader = ExtResource("1_b7326")
+shader_parameter/h = 1.0
+shader_parameter/s = 1.0
+shader_parameter/v = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qb6s0"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8235294, 0.53333336, 0.21568628, 1)
+
+[node name="ThemeCard" type="Control"]
+texture_filter = 3
+custom_minimum_size = Vector2(243.2, 218.5)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 230.0
+pivot_offset = Vector2(128, 115)
+script = ExtResource("1_qb6s0")
+
+[node name="PreviewContainer" type="Control" parent="."]
+texture_filter = 3
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(128, 96)
+mouse_filter = 2
+
+[node name="Preview" type="TextureRect" parent="PreviewContainer"]
+unique_name_in_owner = true
+texture_filter = 3
+material = SubResource("ShaderMaterial_qb6s0")
+custom_minimum_size = Vector2(256, 192)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_right = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(172, 96)
+mouse_filter = 2
+texture = ExtResource("3_qb6s0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -30.0
+offset_right = 33.50003
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_b7326")
+theme_override_font_sizes/font_size = 16
+text = "Unkown Theme"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Highlight" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qb6s0")
